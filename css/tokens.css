@@ -1,0 +1,58 @@
+/* ── Pettagam design tokens ─ the locker world ───────────────────
+   Deep stamp-paper ink, brass key accent, stamp-green / wax-red status */
+:root {
+  /* surfaces: green-black ink, whisper steps */
+  --ink-0: #0c110e;          /* page */
+  --ink-1: #121814;          /* card */
+  --ink-2: #18201b;          /* raised card / input inset uses ink-0 */
+  --ink-3: #1f2922;          /* popover / sheet */
+
+  /* text: aged-paper cream, four tiers */
+  --paper-1: #f1ece0;
+  --paper-2: rgba(241, 236, 224, 0.72);
+  --paper-3: rgba(241, 236, 224, 0.50);
+  --paper-4: rgba(241, 236, 224, 0.32);
+
+  /* brass — the locker key. one accent */
+  --brass: #d9a441;
+  --brass-bright: #edc06a;
+  --brass-ink: #2a1f08;
+
+  /* status — registry stamps */
+  --stamp-green: #4fae76;
+  --stamp-green-dim: rgba(79, 174, 118, 0.16);
+  --wax-red: #e05747;
+  --wax-red-dim: rgba(224, 87, 71, 0.16);
+  --turmeric: #e0a832;
+  --turmeric-dim: rgba(224, 168, 50, 0.15);
+
+  /* borders — findable, not loud */
+  --line: rgba(241, 236, 224, 0.08);
+  --line-soft: rgba(241, 236, 224, 0.05);
+  --line-strong: rgba(241, 236, 224, 0.16);
+  --ring: rgba(217, 164, 65, 0.55);
+
+  /* type */
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Schibsted Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* scale 14 base × 1.25 */
+  --fs-caption: 11px;
+  --fs-body: 14px;
+  --fs-h4: 16px;
+  --fs-h3: 18px;
+  --fs-h2: 22px;
+  --fs-h1: 28px;
+  --fs-display: 40px;
+
+  /* spacing base 4 */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+
+  /* radius scale */
+  --r-s: 8px; --r-m: 14px; --r-l: 20px; --r-full: 999px;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --tab-h: 66px;
+}
