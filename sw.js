@@ -1,10 +1,10 @@
 // sw.js — cache the app shell so Pettagam opens instantly & offline.
-const CACHE = 'pettagam-v1';
+const CACHE = 'pettagam-v2';
 const SHELL = [
   './', 'index.html', 'manifest.json',
   'css/tokens.css', 'css/app.css',
   'js/app.js', 'js/views.js', 'js/db.js', 'js/schemas.js',
-  'js/ai.js', 'js/reminders.js', 'js/backup.js', 'js/ui.js',
+  'js/ai.js', 'js/reminders.js', 'js/backup.js', 'js/ui.js', 'js/ledger.js',
   'schemas/registry.json',
   'icons/icon-192.png', 'icons/icon-512.png'
 ];

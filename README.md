@@ -65,6 +65,12 @@ js/backup.js          export/import
 schemas/registry.json THE dynamic brain — doc types + land checklist
 ```
 
+## v2: Multi-page & Ledgers
+
+- Every document holds **multiple pages** (patta = 6 sheets, thai pathiram = 40 — all one document). Toggle the AI badge per page to control which pages are sent for decoding.
+- **Ledgers** track recurring payments (kanthayam/kist, half-yearly property tax, EB) per property, Indian FY periods (Apr–Mar). Missing years show red in the timeline and pull down locker health — exactly what surfaces at sale time.
+- **Asset hub**: each property/person/vehicle gets one page with its readiness score, ledgers, and all documents.
+
 ## Reminders
 
 PWA push is unreliable on mobile, so Pettagam does two things instead:
