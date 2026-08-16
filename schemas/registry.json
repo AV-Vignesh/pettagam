@@ -1,259 +1,963 @@
 {
-  "version": 3,
-  "updated": "2026-08-15",
+  "version": 4,
+  "updated": "2026-08-16",
   "vaults": [
-    { "id": "land",     "name": "Land & Property", "emoji": "🏞️", "hasAssets": true,  "assetLabel": "Property" },
-    { "id": "identity", "name": "Identity",        "emoji": "🪪", "hasAssets": true,  "assetLabel": "Person" },
-    { "id": "medical",  "name": "Medical",         "emoji": "🏥", "hasAssets": true,  "assetLabel": "Person" },
-    { "id": "misc",     "name": "Vehicle & Misc",  "emoji": "📦", "hasAssets": true,  "assetLabel": "Item" }
+    {
+      "id": "land",
+      "name": "Land & Property",
+      "emoji": "🏞️",
+      "hasAssets": true,
+      "assetLabel": "Property"
+    },
+    {
+      "id": "identity",
+      "name": "Identity",
+      "emoji": "🪪",
+      "hasAssets": true,
+      "assetLabel": "Person"
+    },
+    {
+      "id": "medical",
+      "name": "Medical",
+      "emoji": "🏥",
+      "hasAssets": true,
+      "assetLabel": "Person"
+    },
+    {
+      "id": "misc",
+      "name": "Vehicle & Misc",
+      "emoji": "📦",
+      "hasAssets": true,
+      "assetLabel": "Item"
+    }
   ],
   "docTypes": [
     {
-      "id": "sale_deed", "vault": "land", "name": "Sale Deed", "emoji": "📜",
+      "id": "sale_deed",
+      "vault": "land",
+      "name": "Sale Deed",
+      "emoji": "📜",
       "fields": [
-        { "key": "documentNumber", "label": "Document / Regn. No", "type": "text", "mono": true },
-        { "key": "registrationDate", "label": "Registration Date", "type": "date", "role": "issue" },
-        { "key": "sro", "label": "Sub-Registrar Office (SRO)", "type": "text" },
-        { "key": "seller", "label": "Seller (Executant)", "type": "text" },
-        { "key": "buyer", "label": "Buyer (Claimant)", "type": "text" },
-        { "key": "surveyNumber", "label": "Survey No", "type": "text", "mono": true },
-        { "key": "extent", "label": "Extent (sq.ft / cents / acres)", "type": "text" },
-        { "key": "village", "label": "Village / Taluk / District", "type": "text" },
-        { "key": "consideration", "label": "Sale Consideration (₹)", "type": "text", "mono": true },
-        { "key": "stampDuty", "label": "Stamp Duty Paid (₹)", "type": "text", "mono": true },
-        { "key": "boundaries", "label": "Boundaries (N/S/E/W)", "type": "textarea" }
+        {
+          "key": "documentNumber",
+          "label": "Document / Regn. No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "registrationDate",
+          "label": "Registration Date",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "sro",
+          "label": "Sub-Registrar Office (SRO)",
+          "type": "text"
+        },
+        {
+          "key": "seller",
+          "label": "Seller (Executant)",
+          "type": "text"
+        },
+        {
+          "key": "buyer",
+          "label": "Buyer (Claimant)",
+          "type": "text"
+        },
+        {
+          "key": "surveyNumber",
+          "label": "Survey No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "extent",
+          "label": "Extent (sq.ft / cents / acres)",
+          "type": "text"
+        },
+        {
+          "key": "village",
+          "label": "Village / Taluk / District",
+          "type": "text"
+        },
+        {
+          "key": "consideration",
+          "label": "Sale Consideration (₹)",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "stampDuty",
+          "label": "Stamp Duty Paid (₹)",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "boundaries",
+          "label": "Boundaries (N/S/E/W)",
+          "type": "textarea"
+        }
       ]
     },
     {
-      "id": "patta_chitta", "vault": "land", "name": "Patta / Chitta", "emoji": "🌾",
+      "id": "patta_chitta",
+      "vault": "land",
+      "name": "Patta / Chitta",
+      "emoji": "🌾",
       "fields": [
-        { "key": "pattaNumber", "label": "Patta No", "type": "text", "mono": true },
-        { "key": "ownerName", "label": "Owner Name(s)", "type": "text" },
-        { "key": "surveyNumber", "label": "Survey No / Subdivision", "type": "text", "mono": true },
-        { "key": "landType", "label": "Land Classification (Nanjai/Punjai)", "type": "text" },
-        { "key": "extent", "label": "Extent (hectare / acre)", "type": "text" },
-        { "key": "village", "label": "Village / Taluk / District", "type": "text" },
-        { "key": "issueDate", "label": "Issued On", "type": "date", "role": "issue" }
+        {
+          "key": "pattaNumber",
+          "label": "Patta No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "ownerName",
+          "label": "Owner Name(s)",
+          "type": "text"
+        },
+        {
+          "key": "surveyNumber",
+          "label": "Survey No / Subdivision",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "landType",
+          "label": "Land Classification (Nanjai/Punjai)",
+          "type": "text"
+        },
+        {
+          "key": "extent",
+          "label": "Extent (hectare / acre)",
+          "type": "text"
+        },
+        {
+          "key": "village",
+          "label": "Village / Taluk / District",
+          "type": "text"
+        },
+        {
+          "key": "issueDate",
+          "label": "Issued On",
+          "type": "date",
+          "role": "issue"
+        }
       ],
       "freshnessMonths": 12,
       "freshnessNote": "Pull a fresh Patta yearly to catch silent mutations."
     },
     {
-      "id": "encumbrance_certificate", "vault": "land", "name": "Encumbrance Certificate (EC)", "emoji": "🔍",
+      "id": "encumbrance_certificate",
+      "vault": "land",
+      "name": "Encumbrance Certificate (EC)",
+      "emoji": "🔍",
       "fields": [
-        { "key": "ecNumber", "label": "EC Application No", "type": "text", "mono": true },
-        { "key": "periodFrom", "label": "Search Period From", "type": "date" },
-        { "key": "periodTo", "label": "Search Period To", "type": "date", "role": "issue" },
-        { "key": "surveyNumber", "label": "Survey No", "type": "text", "mono": true },
-        { "key": "sro", "label": "SRO", "type": "text" },
-        { "key": "entries", "label": "Entries / Transactions Found", "type": "textarea" }
+        {
+          "key": "ecNumber",
+          "label": "EC Application No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "periodFrom",
+          "label": "Search Period From",
+          "type": "date"
+        },
+        {
+          "key": "periodTo",
+          "label": "Search Period To",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "surveyNumber",
+          "label": "Survey No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "sro",
+          "label": "SRO",
+          "type": "text"
+        },
+        {
+          "key": "entries",
+          "label": "Entries / Transactions Found",
+          "type": "textarea"
+        }
       ],
       "freshnessMonths": 6,
       "freshnessNote": "EC older than 6 months is stale for a sale — pull a fresh one."
     },
     {
-      "id": "mother_deed", "vault": "land", "name": "Mother / Parent Deed", "emoji": "🧾",
+      "id": "mother_deed",
+      "vault": "land",
+      "name": "Mother / Parent Deed",
+      "emoji": "🧾",
       "fields": [
-        { "key": "documentNumber", "label": "Document No", "type": "text", "mono": true },
-        { "key": "year", "label": "Year of Registration", "type": "text", "mono": true },
-        { "key": "deedType", "label": "Deed Type (Sale/Gift/Partition/Settlement/Will)", "type": "text" },
-        { "key": "parties", "label": "Parties", "type": "textarea" },
-        { "key": "surveyNumber", "label": "Survey No", "type": "text", "mono": true }
+        {
+          "key": "documentNumber",
+          "label": "Document No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "year",
+          "label": "Year of Registration",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "deedType",
+          "label": "Deed Type (Sale/Gift/Partition/Settlement/Will)",
+          "type": "text"
+        },
+        {
+          "key": "parties",
+          "label": "Parties",
+          "type": "textarea"
+        },
+        {
+          "key": "surveyNumber",
+          "label": "Survey No",
+          "type": "text",
+          "mono": true
+        }
       ]
     },
     {
-      "id": "property_tax", "vault": "land", "name": "Property Tax Receipt", "emoji": "🧾",
+      "id": "property_tax",
+      "vault": "land",
+      "name": "Property Tax Receipt",
+      "emoji": "🧾",
       "fields": [
-        { "key": "assessmentNumber", "label": "Assessment No", "type": "text", "mono": true },
-        { "key": "ownerName", "label": "Assessee Name", "type": "text" },
-        { "key": "period", "label": "Tax Period (e.g. 2026-27 H1)", "type": "text" },
-        { "key": "amount", "label": "Amount Paid (₹)", "type": "text", "mono": true },
-        { "key": "paidOn", "label": "Paid On", "type": "date", "role": "issue" }
+        {
+          "key": "assessmentNumber",
+          "label": "Assessment No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "ownerName",
+          "label": "Assessee Name",
+          "type": "text"
+        },
+        {
+          "key": "period",
+          "label": "Tax Period (e.g. 2026-27 H1)",
+          "type": "text"
+        },
+        {
+          "key": "amount",
+          "label": "Amount Paid (₹)",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "paidOn",
+          "label": "Paid On",
+          "type": "date",
+          "role": "issue"
+        }
       ],
       "freshnessMonths": 6,
       "freshnessNote": "Property tax is due half-yearly in most TN ULBs."
     },
     {
-      "id": "fmb_sketch", "vault": "land", "name": "FMB Sketch / Field Map", "emoji": "🗺️",
+      "id": "fmb_sketch",
+      "vault": "land",
+      "name": "FMB Sketch / Field Map",
+      "emoji": "🗺️",
       "fields": [
-        { "key": "surveyNumber", "label": "Survey No", "type": "text", "mono": true },
-        { "key": "village", "label": "Village / Taluk", "type": "text" },
-        { "key": "issueDate", "label": "Issued On", "type": "date", "role": "issue" }
+        {
+          "key": "surveyNumber",
+          "label": "Survey No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "village",
+          "label": "Village / Taluk",
+          "type": "text"
+        },
+        {
+          "key": "issueDate",
+          "label": "Issued On",
+          "type": "date",
+          "role": "issue"
+        }
       ]
     },
     {
-      "id": "layout_approval", "vault": "land", "name": "Layout / DTCP / CMDA Approval", "emoji": "🏗️",
+      "id": "layout_approval",
+      "vault": "land",
+      "name": "Layout / DTCP / CMDA Approval",
+      "emoji": "🏗️",
       "fields": [
-        { "key": "approvalNumber", "label": "Approval No", "type": "text", "mono": true },
-        { "key": "authority", "label": "Authority (DTCP/CMDA/LPA)", "type": "text" },
-        { "key": "layoutName", "label": "Layout Name", "type": "text" },
-        { "key": "plotNumber", "label": "Plot No", "type": "text", "mono": true },
-        { "key": "approvalDate", "label": "Approval Date", "type": "date", "role": "issue" }
+        {
+          "key": "approvalNumber",
+          "label": "Approval No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "authority",
+          "label": "Authority (DTCP/CMDA/LPA)",
+          "type": "text"
+        },
+        {
+          "key": "layoutName",
+          "label": "Layout Name",
+          "type": "text"
+        },
+        {
+          "key": "plotNumber",
+          "label": "Plot No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "approvalDate",
+          "label": "Approval Date",
+          "type": "date",
+          "role": "issue"
+        }
       ]
     },
     {
-      "id": "legal_heir", "vault": "land", "name": "Legal Heir / Will / Succession", "emoji": "👪",
+      "id": "legal_heir",
+      "vault": "land",
+      "name": "Legal Heir / Will / Succession",
+      "emoji": "👪",
       "fields": [
-        { "key": "certificateNumber", "label": "Certificate No", "type": "text", "mono": true },
-        { "key": "deceasedName", "label": "Deceased Name", "type": "text" },
-        { "key": "heirs", "label": "Heirs Listed", "type": "textarea" },
-        { "key": "issueDate", "label": "Issued On", "type": "date", "role": "issue" }
+        {
+          "key": "certificateNumber",
+          "label": "Certificate No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "deceasedName",
+          "label": "Deceased Name",
+          "type": "text"
+        },
+        {
+          "key": "heirs",
+          "label": "Heirs Listed",
+          "type": "textarea"
+        },
+        {
+          "key": "issueDate",
+          "label": "Issued On",
+          "type": "date",
+          "role": "issue"
+        }
       ]
     },
     {
-      "id": "aadhaar", "vault": "identity", "name": "Aadhaar", "emoji": "🇮🇳",
+      "id": "aadhaar",
+      "vault": "identity",
+      "name": "Aadhaar",
+      "emoji": "🇮🇳",
       "fields": [
-        { "key": "name", "label": "Name", "type": "text" },
-        { "key": "aadhaarNumber", "label": "Aadhaar No (last 4 only, be safe)", "type": "text", "mono": true },
-        { "key": "dob", "label": "Date of Birth", "type": "date" },
-        { "key": "address", "label": "Address", "type": "textarea" }
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text"
+        },
+        {
+          "key": "aadhaarNumber",
+          "label": "Aadhaar No (last 4 only, be safe)",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "dob",
+          "label": "Date of Birth",
+          "type": "date"
+        },
+        {
+          "key": "address",
+          "label": "Address",
+          "type": "textarea"
+        }
       ]
     },
     {
-      "id": "pan", "vault": "identity", "name": "PAN Card", "emoji": "💳",
+      "id": "pan",
+      "vault": "identity",
+      "name": "PAN Card",
+      "emoji": "💳",
       "fields": [
-        { "key": "name", "label": "Name", "type": "text" },
-        { "key": "panNumber", "label": "PAN", "type": "text", "mono": true },
-        { "key": "dob", "label": "Date of Birth", "type": "date" }
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text"
+        },
+        {
+          "key": "panNumber",
+          "label": "PAN",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "dob",
+          "label": "Date of Birth",
+          "type": "date"
+        }
       ]
     },
     {
-      "id": "passport", "vault": "identity", "name": "Passport", "emoji": "🛂",
+      "id": "passport",
+      "vault": "identity",
+      "name": "Passport",
+      "emoji": "🛂",
       "fields": [
-        { "key": "name", "label": "Name", "type": "text" },
-        { "key": "passportNumber", "label": "Passport No", "type": "text", "mono": true },
-        { "key": "issueDate", "label": "Date of Issue", "type": "date", "role": "issue" },
-        { "key": "expiryDate", "label": "Date of Expiry", "type": "date", "role": "expiry" },
-        { "key": "placeOfIssue", "label": "Place of Issue", "type": "text" }
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text"
+        },
+        {
+          "key": "passportNumber",
+          "label": "Passport No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "issueDate",
+          "label": "Date of Issue",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "expiryDate",
+          "label": "Date of Expiry",
+          "type": "date",
+          "role": "expiry"
+        },
+        {
+          "key": "placeOfIssue",
+          "label": "Place of Issue",
+          "type": "text"
+        }
       ],
       "expiryNote": "Many countries need 6 months validity — renew early."
     },
     {
-      "id": "driving_licence", "vault": "identity", "name": "Driving Licence", "emoji": "🚗",
+      "id": "driving_licence",
+      "vault": "identity",
+      "name": "Driving Licence",
+      "emoji": "🚗",
       "fields": [
-        { "key": "name", "label": "Name", "type": "text" },
-        { "key": "dlNumber", "label": "DL No", "type": "text", "mono": true },
-        { "key": "vehicleClass", "label": "Class of Vehicle", "type": "text" },
-        { "key": "validTill", "label": "Valid Till", "type": "date", "role": "expiry" }
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text"
+        },
+        {
+          "key": "dlNumber",
+          "label": "DL No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "vehicleClass",
+          "label": "Class of Vehicle",
+          "type": "text"
+        },
+        {
+          "key": "validTill",
+          "label": "Valid Till",
+          "type": "date",
+          "role": "expiry"
+        }
       ]
     },
     {
-      "id": "voter_id", "vault": "identity", "name": "Voter ID", "emoji": "🗳️",
+      "id": "voter_id",
+      "vault": "identity",
+      "name": "Voter ID",
+      "emoji": "🗳️",
       "fields": [
-        { "key": "name", "label": "Name", "type": "text" },
-        { "key": "epicNumber", "label": "EPIC No", "type": "text", "mono": true },
-        { "key": "constituency", "label": "Constituency", "type": "text" }
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text"
+        },
+        {
+          "key": "epicNumber",
+          "label": "EPIC No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "constituency",
+          "label": "Constituency",
+          "type": "text"
+        }
       ]
     },
     {
-      "id": "health_insurance", "vault": "medical", "name": "Health Insurance Policy", "emoji": "🛡️",
+      "id": "health_insurance",
+      "vault": "medical",
+      "name": "Health Insurance Policy",
+      "emoji": "🛡️",
       "fields": [
-        { "key": "insurer", "label": "Insurer", "type": "text" },
-        { "key": "policyNumber", "label": "Policy No", "type": "text", "mono": true },
-        { "key": "policyHolder", "label": "Policy Holder", "type": "text" },
-        { "key": "membersCovered", "label": "Members Covered", "type": "textarea" },
-        { "key": "sumInsured", "label": "Sum Insured (₹)", "type": "text", "mono": true },
-        { "key": "premium", "label": "Premium (₹)", "type": "text", "mono": true },
-        { "key": "startDate", "label": "Policy Start", "type": "date", "role": "issue" },
-        { "key": "endDate", "label": "Policy End", "type": "date", "role": "expiry" }
+        {
+          "key": "insurer",
+          "label": "Insurer",
+          "type": "text"
+        },
+        {
+          "key": "policyNumber",
+          "label": "Policy No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "policyHolder",
+          "label": "Policy Holder",
+          "type": "text"
+        },
+        {
+          "key": "membersCovered",
+          "label": "Members Covered",
+          "type": "textarea"
+        },
+        {
+          "key": "sumInsured",
+          "label": "Sum Insured (₹)",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "premium",
+          "label": "Premium (₹)",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "startDate",
+          "label": "Policy Start",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "endDate",
+          "label": "Policy End",
+          "type": "date",
+          "role": "expiry"
+        }
       ]
     },
     {
-      "id": "prescription", "vault": "medical", "name": "Prescription", "emoji": "💊",
+      "id": "prescription",
+      "vault": "medical",
+      "name": "Prescription",
+      "emoji": "💊",
       "fields": [
-        { "key": "patient", "label": "Patient", "type": "text" },
-        { "key": "doctor", "label": "Doctor / Hospital", "type": "text" },
-        { "key": "date", "label": "Date", "type": "date", "role": "issue" },
-        { "key": "medicines", "label": "Medicines & Dosage", "type": "textarea" },
-        { "key": "diagnosis", "label": "Diagnosis / Notes", "type": "textarea" }
+        {
+          "key": "patient",
+          "label": "Patient",
+          "type": "text"
+        },
+        {
+          "key": "doctor",
+          "label": "Doctor / Hospital",
+          "type": "text"
+        },
+        {
+          "key": "date",
+          "label": "Date",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "medicines",
+          "label": "Medicines & Dosage",
+          "type": "textarea"
+        },
+        {
+          "key": "diagnosis",
+          "label": "Diagnosis / Notes",
+          "type": "textarea"
+        }
       ]
     },
     {
-      "id": "lab_report", "vault": "medical", "name": "Lab / Scan Report", "emoji": "🧪",
+      "id": "lab_report",
+      "vault": "medical",
+      "name": "Lab / Scan Report",
+      "emoji": "🧪",
       "fields": [
-        { "key": "patient", "label": "Patient", "type": "text" },
-        { "key": "lab", "label": "Lab / Centre", "type": "text" },
-        { "key": "testName", "label": "Test / Scan", "type": "text" },
-        { "key": "date", "label": "Date", "type": "date", "role": "issue" },
-        { "key": "keyFindings", "label": "Key Findings", "type": "textarea" }
+        {
+          "key": "patient",
+          "label": "Patient",
+          "type": "text"
+        },
+        {
+          "key": "lab",
+          "label": "Lab / Centre",
+          "type": "text"
+        },
+        {
+          "key": "testName",
+          "label": "Test / Scan",
+          "type": "text"
+        },
+        {
+          "key": "date",
+          "label": "Date",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "keyFindings",
+          "label": "Key Findings",
+          "type": "textarea"
+        }
       ]
     },
     {
-      "id": "vaccination", "vault": "medical", "name": "Vaccination Record", "emoji": "💉",
+      "id": "vaccination",
+      "vault": "medical",
+      "name": "Vaccination Record",
+      "emoji": "💉",
       "fields": [
-        { "key": "patient", "label": "Patient", "type": "text" },
-        { "key": "vaccine", "label": "Vaccine", "type": "text" },
-        { "key": "doseDate", "label": "Dose Date", "type": "date", "role": "issue" },
-        { "key": "nextDue", "label": "Next Dose Due", "type": "date", "role": "expiry" }
+        {
+          "key": "patient",
+          "label": "Patient",
+          "type": "text"
+        },
+        {
+          "key": "vaccine",
+          "label": "Vaccine",
+          "type": "text"
+        },
+        {
+          "key": "doseDate",
+          "label": "Dose Date",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "nextDue",
+          "label": "Next Dose Due",
+          "type": "date",
+          "role": "expiry"
+        }
       ]
     },
     {
-      "id": "vehicle_rc", "vault": "misc", "name": "Vehicle RC", "emoji": "🛵",
+      "id": "vehicle_rc",
+      "vault": "misc",
+      "name": "Vehicle RC",
+      "emoji": "🛵",
       "fields": [
-        { "key": "regNumber", "label": "Registration No", "type": "text", "mono": true },
-        { "key": "ownerName", "label": "Owner", "type": "text" },
-        { "key": "makeModel", "label": "Make / Model", "type": "text" },
-        { "key": "chassisNumber", "label": "Chassis No (last 5)", "type": "text", "mono": true },
-        { "key": "regValidTill", "label": "Registration Valid Till", "type": "date", "role": "expiry" }
+        {
+          "key": "regNumber",
+          "label": "Registration No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "ownerName",
+          "label": "Owner",
+          "type": "text"
+        },
+        {
+          "key": "makeModel",
+          "label": "Make / Model",
+          "type": "text"
+        },
+        {
+          "key": "chassisNumber",
+          "label": "Chassis No (last 5)",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "regValidTill",
+          "label": "Registration Valid Till",
+          "type": "date",
+          "role": "expiry"
+        }
       ]
     },
     {
-      "id": "vehicle_insurance", "vault": "misc", "name": "Vehicle Insurance", "emoji": "🚦",
+      "id": "vehicle_insurance",
+      "vault": "misc",
+      "name": "Vehicle Insurance",
+      "emoji": "🚦",
       "fields": [
-        { "key": "insurer", "label": "Insurer", "type": "text" },
-        { "key": "policyNumber", "label": "Policy No", "type": "text", "mono": true },
-        { "key": "regNumber", "label": "Vehicle Reg No", "type": "text", "mono": true },
-        { "key": "idv", "label": "IDV (₹)", "type": "text", "mono": true },
-        { "key": "startDate", "label": "Start", "type": "date", "role": "issue" },
-        { "key": "endDate", "label": "Expiry", "type": "date", "role": "expiry" }
+        {
+          "key": "insurer",
+          "label": "Insurer",
+          "type": "text"
+        },
+        {
+          "key": "policyNumber",
+          "label": "Policy No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "regNumber",
+          "label": "Vehicle Reg No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "idv",
+          "label": "IDV (₹)",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "startDate",
+          "label": "Start",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "endDate",
+          "label": "Expiry",
+          "type": "date",
+          "role": "expiry"
+        }
       ]
     },
     {
-      "id": "puc", "vault": "misc", "name": "PUC Certificate", "emoji": "🌫️",
+      "id": "puc",
+      "vault": "misc",
+      "name": "PUC Certificate",
+      "emoji": "🌫️",
       "fields": [
-        { "key": "regNumber", "label": "Vehicle Reg No", "type": "text", "mono": true },
-        { "key": "certNumber", "label": "PUC No", "type": "text", "mono": true },
-        { "key": "validTill", "label": "Valid Till", "type": "date", "role": "expiry" }
+        {
+          "key": "regNumber",
+          "label": "Vehicle Reg No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "certNumber",
+          "label": "PUC No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "validTill",
+          "label": "Valid Till",
+          "type": "date",
+          "role": "expiry"
+        }
       ]
     },
     {
-      "id": "agreement", "vault": "misc", "name": "Agreement (Rental / Other)", "emoji": "🤝",
+      "id": "agreement",
+      "vault": "misc",
+      "name": "Agreement (Rental / Other)",
+      "emoji": "🤝",
       "fields": [
-        { "key": "parties", "label": "Parties", "type": "textarea" },
-        { "key": "purpose", "label": "Purpose", "type": "text" },
-        { "key": "startDate", "label": "Start", "type": "date", "role": "issue" },
-        { "key": "endDate", "label": "End / Renewal Due", "type": "date", "role": "expiry" },
-        { "key": "amount", "label": "Amount / Rent (₹)", "type": "text", "mono": true }
+        {
+          "key": "parties",
+          "label": "Parties",
+          "type": "textarea"
+        },
+        {
+          "key": "purpose",
+          "label": "Purpose",
+          "type": "text"
+        },
+        {
+          "key": "startDate",
+          "label": "Start",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "endDate",
+          "label": "End / Renewal Due",
+          "type": "date",
+          "role": "expiry"
+        },
+        {
+          "key": "amount",
+          "label": "Amount / Rent (₹)",
+          "type": "text",
+          "mono": true
+        }
       ]
     },
     {
-      "id": "warranty", "vault": "misc", "name": "Warranty / Invoice", "emoji": "🧰",
+      "id": "warranty",
+      "vault": "misc",
+      "name": "Warranty / Invoice",
+      "emoji": "🧰",
       "fields": [
-        { "key": "product", "label": "Product", "type": "text" },
-        { "key": "seller", "label": "Seller / Brand", "type": "text" },
-        { "key": "invoiceNumber", "label": "Invoice No", "type": "text", "mono": true },
-        { "key": "purchaseDate", "label": "Purchase Date", "type": "date", "role": "issue" },
-        { "key": "warrantyTill", "label": "Warranty Till", "type": "date", "role": "expiry" }
+        {
+          "key": "product",
+          "label": "Product",
+          "type": "text"
+        },
+        {
+          "key": "seller",
+          "label": "Seller / Brand",
+          "type": "text"
+        },
+        {
+          "key": "invoiceNumber",
+          "label": "Invoice No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "purchaseDate",
+          "label": "Purchase Date",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "warrantyTill",
+          "label": "Warranty Till",
+          "type": "date",
+          "role": "expiry"
+        }
       ]
     },
     {
-      "id": "custom", "vault": "misc", "name": "Other Document", "emoji": "📄",
+      "id": "custom",
+      "vault": "misc",
+      "name": "Other Document",
+      "emoji": "📄",
       "fields": [
-        { "key": "description", "label": "What is this?", "type": "textarea" },
-        { "key": "referenceNumber", "label": "Reference No", "type": "text", "mono": true },
-        { "key": "date", "label": "Date", "type": "date", "role": "issue" },
-        { "key": "expiryDate", "label": "Expiry (if any)", "type": "date", "role": "expiry" }
+        {
+          "key": "description",
+          "label": "What is this?",
+          "type": "textarea"
+        },
+        {
+          "key": "referenceNumber",
+          "label": "Reference No",
+          "type": "text",
+          "mono": true
+        },
+        {
+          "key": "date",
+          "label": "Date",
+          "type": "date",
+          "role": "issue"
+        },
+        {
+          "key": "expiryDate",
+          "label": "Expiry (if any)",
+          "type": "date",
+          "role": "expiry"
+        }
       ]
     }
   ],
   "landChecklist": [
-    { "docType": "sale_deed", "label": "Sale deed (your title)", "critical": true },
-    { "docType": "mother_deed", "label": "Mother deed chain (30 yrs ideal)", "critical": true },
-    { "docType": "patta_chitta", "label": "Patta / Chitta in your name", "critical": true },
-    { "docType": "encumbrance_certificate", "label": "Fresh EC (≤ 6 months)", "critical": true },
-    { "docType": "property_tax", "label": "Latest property tax receipt", "critical": true },
-    { "docType": "fmb_sketch", "label": "FMB sketch / field map", "critical": false },
-    { "docType": "layout_approval", "label": "Layout / DTCP approval (plots)", "critical": false },
-    { "docType": "legal_heir", "label": "Legal heir / will (inherited land)", "critical": false }
+    {
+      "docType": "sale_deed",
+      "label": "Sale deed (your title)",
+      "critical": true
+    },
+    {
+      "docType": "mother_deed",
+      "label": "Mother deed chain (30 yrs ideal)",
+      "critical": true
+    },
+    {
+      "docType": "patta_chitta",
+      "label": "Patta / Chitta in your name",
+      "critical": true
+    },
+    {
+      "docType": "encumbrance_certificate",
+      "label": "Fresh EC (≤ 6 months)",
+      "critical": true
+    },
+    {
+      "docType": "property_tax",
+      "label": "Latest property tax receipt",
+      "critical": true
+    },
+    {
+      "docType": "fmb_sketch",
+      "label": "FMB sketch / field map",
+      "critical": false
+    },
+    {
+      "docType": "layout_approval",
+      "label": "Layout / DTCP approval (plots)",
+      "critical": false
+    },
+    {
+      "docType": "legal_heir",
+      "label": "Legal heir / will (inherited land)",
+      "critical": false
+    }
+  ],
+  "ledgerTypes": [
+    {
+      "id": "kanthayam",
+      "name": "Kanthayam / Kist (Land Revenue)",
+      "emoji": "🌾",
+      "frequency": "yearly",
+      "vault": "land",
+      "note": "Village land revenue paid yearly at the VAO/taluk office. Unpaid years surface as objections during sale."
+    },
+    {
+      "id": "property_tax_hy",
+      "name": "Property Tax (Half-yearly)",
+      "emoji": "🏛️",
+      "frequency": "halfyearly",
+      "vault": "land",
+      "note": "Urban local body tax — due each half of the financial year."
+    },
+    {
+      "id": "water_tax",
+      "name": "Water Tax",
+      "emoji": "🚰",
+      "frequency": "halfyearly",
+      "vault": "land",
+      "note": ""
+    },
+    {
+      "id": "eb_bill",
+      "name": "EB / Electricity",
+      "emoji": "⚡",
+      "frequency": "monthly",
+      "vault": "land",
+      "note": "Keep at least the latest few — proof of possession."
+    },
+    {
+      "id": "lease_rent",
+      "name": "Lease / Ground Rent",
+      "emoji": "📃",
+      "frequency": "yearly",
+      "vault": "land",
+      "note": ""
+    },
+    {
+      "id": "insurance_renewal",
+      "name": "Insurance Premium",
+      "emoji": "🛡️",
+      "frequency": "yearly",
+      "vault": "misc",
+      "note": ""
+    },
+    {
+      "id": "custom_ledger",
+      "name": "Other Recurring Payment",
+      "emoji": "🔁",
+      "frequency": "yearly",
+      "vault": "misc",
+      "note": ""
+    }
   ]
 }
