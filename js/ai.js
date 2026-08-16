@@ -76,17 +76,11 @@ async function callAzure(cfg, messages, system) {
   return data.choices?.[0]?.message?.content || '';
 }
 
-function imageMessage(provider, b64, prompt) {
-  if (provider === 'anthropic') {
-    return [{ role: 'user', content: [
-      { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: b64 } },
-      { type: 'text', text: prompt }
-    ]}];
-  }
-  return [{ role: 'user', content: [
-    { type: 'image_url', image_url: { url: `data:image/jpeg;base64,${b64}` } },
-    { type: 'text', text: prompt }
-  ]}];
+function imageMessage(provider, b64Pages, prompt) {
+  const imgs = b64Pages.map(b64 => provider === 'anthropic'
+    ? { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: b64 } }
+    : { type: 'image_url', image_url: { url: `data:image/jpeg;base64,${b64}` } });
+  return [{ role: 'user', content: [...imgs, { type: 'text', text: prompt }] }];
 }
 
 function parseJSON(text) {
@@ -98,7 +92,7 @@ function parseJSON(text) {
 }
 
 /* ── decode a document photo into structured fields ── */
-export async function decodeDocument(b64, vault, forcedTypeId) {
+export async function decodeDocument(b64Pages, vault, forcedTypeId) {
   const cfg = getAIConfig();
   if (!aiReady()) throw new Error('AI not configured — set it up in Settings.');
 
@@ -112,7 +106,7 @@ export async function decodeDocument(b64, vault, forcedTypeId) {
 
   const system = 'You extract structured data from photos of Indian documents (land records, IDs, medical, vehicle). Respond ONLY with a single JSON object, no markdown, no preamble.';
   const prompt =
-`Identify which document type this image is from the catalog below, then extract every field you can read.
+`These ${b64Pages.length} image(s) are pages of ONE document. Identify which document type it is from the catalog below, then extract every field you can read across all pages.
 
 Catalog: ${JSON.stringify(catalog)}
 
@@ -123,7 +117,7 @@ Rules:
 - If a field isn't visible, omit it. Never invent values.
 - If nothing in the catalog fits, use the closest one and say so in notes.`;
 
-  const messages = imageMessage(cfg.provider, b64, prompt);
+  const messages = imageMessage(cfg.provider, b64Pages, prompt);
   const text = cfg.provider === 'anthropic'
     ? await callAnthropic(cfg, messages, system)
     : await callAzure(cfg, messages, system);

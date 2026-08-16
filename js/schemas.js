@@ -42,4 +42,6 @@ export function getDocTypes(vault) {
 }
 export function getDocType(id) { return (registry?.docTypes || []).find(t => t.id === id); }
 export function getLandChecklist() { return registry?.landChecklist || []; }
+export function getLedgerTypes() { return registry?.ledgerTypes || []; }
+export function getLedgerType(id) { return getLedgerTypes().find(t => t.id === id); }
 export function registryVersion() { return registry?.version || 0; }

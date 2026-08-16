@@ -1,7 +1,7 @@
-// db.js — IndexedDB layer. This is what beats the 5MB localStorage limit:
-// blobs go into IndexedDB (quota = a share of free disk, typically GBs).
+// db.js — IndexedDB layer (v2): multi-page docs + ledgers.
+// Blobs live in IndexedDB (quota = share of free disk, GBs) — not localStorage (5MB).
 const DB_NAME = 'pettagam';
-const DB_VER = 1;
+const DB_VER = 2;
 let _db = null;
 
 function open() {
@@ -9,11 +9,15 @@ function open() {
   return new Promise((resolve, reject) => {
     const req = indexedDB.open(DB_NAME, DB_VER);
     req.onupgradeneeded = (e) => {
-      const db = e.target.result;
-      if (!db.objectStoreNames.contains('docs')) {
-        const s = db.createObjectStore('docs', { keyPath: 'id' });
+      const d = e.target.result;
+      if (!d.objectStoreNames.contains('docs')) {
+        const s = d.createObjectStore('docs', { keyPath: 'id' });
         s.createIndex('vault', 'vault');
         s.createIndex('asset', 'asset');
+      }
+      if (!d.objectStoreNames.contains('ledgers')) {
+        const l = d.createObjectStore('ledgers', { keyPath: 'id' });
+        l.createIndex('asset', 'asset');
       }
     };
     req.onsuccess = () => { _db = req.result; resolve(_db); };
@@ -21,53 +25,42 @@ function open() {
   });
 }
 
-function tx(mode, fn) {
-  return open().then(db => new Promise((resolve, reject) => {
-    const t = db.transaction('docs', mode);
-    const out = fn(t.objectStore('docs'));
-    t.oncomplete = () => resolve(out && out._val !== undefined ? out._val : out);
-    t.onerror = () => reject(t.error);
-  }));
+function reqP(request) {
+  return new Promise((res, rej) => {
+    request.onsuccess = () => res(request.result);
+    request.onerror = () => rej(request.error);
+  });
+}
+async function store(name, mode = 'readonly') {
+  const d = await open();
+  return d.transaction(name, mode).objectStore(name);
+}
+
+// v1 docs had {image, thumb}; v2 uses pages:[{blob, thumb}]. Normalize lazily.
+export function ensurePages(doc) {
+  if (!doc) return doc;
+  if (!Array.isArray(doc.pages)) {
+    doc.pages = doc.image ? [{ blob: doc.image, thumb: doc.thumb || null }] : [];
+    delete doc.image; delete doc.thumb;
+  }
+  return doc;
 }
 
 export const db = {
-  async put(doc) {
-    doc.updatedAt = Date.now();
-    await tx('readwrite', s => s.put(doc));
-    return doc;
-  },
-  async get(id) {
-    const d = await open();
-    return new Promise((res, rej) => {
-      const r = d.transaction('docs').objectStore('docs').get(id);
-      r.onsuccess = () => res(r.result || null);
-      r.onerror = () => rej(r.error);
-    });
-  },
-  async all() {
-    const d = await open();
-    return new Promise((res, rej) => {
-      const r = d.transaction('docs').objectStore('docs').getAll();
-      r.onsuccess = () => res(r.result || []);
-      r.onerror = () => rej(r.error);
-    });
-  },
-  async byVault(vault) {
-    const d = await open();
-    return new Promise((res, rej) => {
-      const r = d.transaction('docs').objectStore('docs').index('vault').getAll(vault);
-      r.onsuccess = () => res(r.result || []);
-      r.onerror = () => rej(r.error);
-    });
-  },
-  async remove(id) {
-    return tx('readwrite', s => s.delete(id));
-  },
+  async put(doc) { doc.updatedAt = Date.now(); await reqP((await store('docs', 'readwrite')).put(doc)); return doc; },
+  async get(id) { return ensurePages(await reqP((await store('docs')).get(id)) || null); },
+  async all() { return (await reqP((await store('docs')).getAll()) || []).map(ensurePages); },
+  async byVault(v) { return (await reqP((await store('docs')).index('vault').getAll(v)) || []).map(ensurePages); },
+  async remove(id) { return reqP((await store('docs', 'readwrite')).delete(id)); },
+
+  async putLedger(l) { l.updatedAt = Date.now(); await reqP((await store('ledgers', 'readwrite')).put(l)); return l; },
+  async getLedger(id) { return await reqP((await store('ledgers')).get(id)) || null; },
+  async allLedgers() { return await reqP((await store('ledgers')).getAll()) || []; },
+  async removeLedger(id) { return reqP((await store('ledgers', 'readwrite')).delete(id)); },
+
   async requestPersist() {
-    // Ask the browser to protect this data from eviction
     if (navigator.storage?.persist) {
-      const already = await navigator.storage.persisted();
-      if (already) return true;
+      if (await navigator.storage.persisted()) return true;
       return navigator.storage.persist();
     }
     return false;

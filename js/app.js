@@ -2,14 +2,16 @@
 import { loadRegistry } from './schemas.js';
 import { db } from './db.js';
 import { el } from './ui.js';
-import { homeView, vaultsView, vaultView, addView, docView, askView, settingsView } from './views.js';
+import { homeView, vaultsView, vaultView, assetView, addView, docView, ledgerView, askView, settingsView } from './views.js';
 
 const routes = {
   home: homeView,
   vaults: vaultsView,
   vault: vaultView,
+  asset: assetView,
   add: addView,
   doc: docView,
+  ledger: ledgerView,
   ask: askView,
   settings: settingsView
 };
@@ -29,7 +31,7 @@ async function render() {
   const fn = routes[routeName] || homeView;
 
   // tab highlight (vault/doc belong under vaults)
-  const tabRoute = { vault: 'vaults', doc: 'vaults' }[routeName] || routeName;
+  const tabRoute = { vault: 'vaults', doc: 'vaults', asset: 'vaults', ledger: 'vaults' }[routeName] || routeName;
   tabbar.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.route === tabRoute));
 
   viewRoot.innerHTML = '';

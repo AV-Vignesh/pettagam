@@ -1,6 +1,7 @@
 // reminders.js — expiry + freshness engine, and .ics export so the
 // phone's native calendar does the reliable nagging.
 import { getDocType } from './schemas.js';
+import { ledgerStatus } from './ledger.js';
 
 const DAY = 86400000;
 const SOON_DAYS = 60;
@@ -49,13 +50,17 @@ export function attention(docs) {
     .sort((a, b) => (a.status.days ?? 0) - (b.status.days ?? 0));
 }
 
-export function healthScore(docs) {
-  if (!docs.length) return 100;
+export function healthScore(docs, ledgers = []) {
   const tracked = docs.map(docStatus).filter(s => s.state !== 'none');
-  if (!tracked.length) return 100;
-  const bad = tracked.filter(s => s.state === 'expired' || s.state === 'stale').length;
-  const warn = tracked.filter(s => s.state === 'soon').length;
-  return Math.max(0, Math.round(100 - (bad * 100 + warn * 40) / tracked.length));
+  const lstats = ledgers.map(ledgerStatus);
+  const units = tracked.length + lstats.length;
+  if (!units) return 100;
+  let penalty = 0;
+  penalty += tracked.filter(s => s.state === 'expired' || s.state === 'stale').length * 100;
+  penalty += tracked.filter(s => s.state === 'soon').length * 40;
+  penalty += lstats.filter(s => s.state === 'gap').length * 100;
+  penalty += lstats.filter(s => s.state === 'due').length * 40;
+  return Math.max(0, Math.round(100 - penalty / units));
 }
 
 /* ── .ics: one tap → native calendar reminder ── */
